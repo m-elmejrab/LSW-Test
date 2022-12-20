@@ -3703,6 +3703,7 @@ GameObject:
   - component: {fileID: 1956824887}
   - component: {fileID: 1956824891}
   - component: {fileID: 1956824892}
+  - component: {fileID: 1956824893}
   m_Layer: 0
   m_Name: Shopkeeper
   m_TagString: Shopkeeper
@@ -3862,6 +3863,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompt: Press E to shop
+  actionIsDialog: 1
+--- !u!114 &1956824893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956824886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14adb645835c30a4690a212b2efc7bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogSentences:
+  - speakerName: Shopkeeper
+    textToSay: oooohhhh, look who do we have here ...
+  - speakerName: Shopkeeper
+    textToSay: I'm a clothes shop, but unfortunately all the items I have are for
+      humans.
+  - speakerName: You
+    textToSay: GWARRRRR!!!!!
+  - speakerName: Shopkeeper
+    textToSay: Ok Ok, don't eat me alright .. if you got the money I'll give you
+      the clothes, can't promise they'll look good on you
 --- !u!1 &2072859271
 GameObject:
   m_ObjectHideFlags: 0
