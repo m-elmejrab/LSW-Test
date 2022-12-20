@@ -23,6 +23,8 @@ public class DialogSystem : SingletonOneScene<DialogSystem>
    private void Start()
    {
       playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+      actionPromptBox.SetActive(false);
+      dialogBox.SetActive(false);
    }
 
    public void DisplayActionPrompt(string prompt, bool isDialog, Dialog dialog)
