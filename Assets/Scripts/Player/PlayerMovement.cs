@@ -6,13 +6,13 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 1f;
     private Rigidbody2D rb2d;
-    private PlayerManager playerManager;
+    private PlayerInputManager playerInputManager;
     private PlayerAnimator playerAnim;
     
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        playerManager = GetComponent<PlayerManager>();
+        playerInputManager = GetComponent<PlayerInputManager>();
         playerAnim = GetComponent<PlayerAnimator>();
 
     }
@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 currentPosition = rb2d.position;
-        Vector2 inputVector = playerManager.GetMovementInputVector();
+        Vector2 inputVector = playerInputManager.GetMovementInputVector();
         Vector2 movementVector = Vector2.ClampMagnitude(inputVector, 1);
 
         Vector2 movementAdjustedForSpeed = movementVector * movementSpeed;

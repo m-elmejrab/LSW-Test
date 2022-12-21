@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b50444b0e6ec65748b8b472bfeaf139b, type: 3}
   m_Name: RedHelmet
   m_EditorClassIdentifier: 
-  itemName: Red Helmet
+  itemName: Red Helm
   price: 20
   picture: {fileID: 21300000, guid: 3d75019360567914b96479f40f232f24, type: 3}
   type: 1

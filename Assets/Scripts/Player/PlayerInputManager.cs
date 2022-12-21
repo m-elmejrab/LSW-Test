@@ -3,27 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerInputManager : MonoBehaviour
 {
-    private PlayerMovement movementScript;
 
     private float horizontalInput;
     private float verticalInput;
-
-    private void Awake()
-    {
-        movementScript = GetComponent<PlayerMovement>();
-    }
-
-    public void DisablePlayerMovement()
-    {
-        movementScript.enabled = false;
-    }
-
-    public void EnablePlayerMovement()
-    {
-        movementScript.enabled = true;
-    }
 
     private void Update()
     {

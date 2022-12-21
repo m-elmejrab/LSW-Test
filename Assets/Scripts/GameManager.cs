@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,13 @@ public class GameManager : Singleton<GameManager>
 {
 
     private bool gameIsPaused = false;
-    
+    private GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
@@ -24,5 +31,16 @@ public class GameManager : Singleton<GameManager>
                 UISystem.instance.HidePauseMenu();
             }
         }
+    }
+
+    public void DisablePlayerMovement()
+    {
+        player.GetComponent<PlayerMovement>().enabled = false;
+        
+    }
+
+    public void EnablePlayerMovement()
+    {
+        player.GetComponent<PlayerMovement>().enabled = true;
     }
 }
