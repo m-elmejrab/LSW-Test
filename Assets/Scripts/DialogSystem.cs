@@ -27,20 +27,11 @@ public class DialogSystem : SingletonOneScene<DialogSystem>
       dialogBox.SetActive(false);
    }
 
-   public void DisplayActionPrompt(string prompt, bool isDialog, Dialog dialog)
+   public void DisplayActionPrompt(string prompt)
    {
       actionPromptBox.SetActive(true);
       promptText.text = prompt;
-      if (isDialog)
-      {
-         nextDialogToShow = dialog;
-         dialogReadyToPlay = true;
-         indexOfSentenceToDisplay = -1;
-      }
-      else
-      {
-         dialogReadyToPlay = false;
-      }
+      
    }
    
    public void HideActionPrompt()
@@ -85,4 +76,12 @@ public class DialogSystem : SingletonOneScene<DialogSystem>
    {
       return dialogReadyToPlay;
    }
+
+   public void SetupDialogQueue(Dialog dialog)
+   {
+      nextDialogToShow = dialog;
+      dialogReadyToPlay = true;
+      indexOfSentenceToDisplay = -1;
+   }
+
 }

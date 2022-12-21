@@ -3,28 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionPromptTrigger : MonoBehaviour
+public class ActionPromptTrigger : MonoBehaviour //Base class for all triggers
 {
     [SerializeField] private string prompt;
-    [SerializeField] private bool actionIsDialog;
 
-    private void OnTriggerEnter2D(Collider2D col)
+    protected virtual void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
         {
-            if (actionIsDialog)
-            {
-                Dialog dialogToShow = GetComponent<Dialog>();
-                DialogSystem.instance.DisplayActionPrompt(prompt, true, dialogToShow);
-            }
-            else
-            {
-                DialogSystem.instance.DisplayActionPrompt(prompt, false, null);
-            }
+            DialogSystem.instance.DisplayActionPrompt(prompt);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    protected virtual void OnTriggerExit2D(Collider2D other)
     {
         DialogSystem.instance.HideActionPrompt();
     }

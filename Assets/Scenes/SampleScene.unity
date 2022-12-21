@@ -838,7 +838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &728070539
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1070,7 +1070,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &845982580
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2220,7 +2220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1321553446
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5016,6 +5016,7 @@ GameObject:
   - component: {fileID: 1956824891}
   - component: {fileID: 1956824892}
   - component: {fileID: 1956824893}
+  - component: {fileID: 1956824894}
   m_Layer: 0
   m_Name: Shopkeeper
   m_TagString: Shopkeeper
@@ -5169,7 +5170,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956824886}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0be7a98239eb299429e3e9c65f7fff23, type: 3}
   m_Name: 
@@ -5199,6 +5200,20 @@ MonoBehaviour:
   - speakerName: Shopkeeper
     textToSay: Ok Ok, don't eat me alright .. if you got the money I'll give you
       the clothes, can't promise they'll look good on you
+--- !u!114 &1956824894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956824886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 987d68f1c1ac92145a1d27721f86f480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prompt: Press E to Test
+  actionIsDialog: 1
 --- !u!1 &1983846248
 GameObject:
   m_ObjectHideFlags: 0
