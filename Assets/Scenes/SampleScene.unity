@@ -5014,7 +5014,6 @@ GameObject:
   - component: {fileID: 1956824888}
   - component: {fileID: 1956824887}
   - component: {fileID: 1956824891}
-  - component: {fileID: 1956824892}
   - component: {fileID: 1956824893}
   - component: {fileID: 1956824894}
   m_Layer: 0
@@ -5163,20 +5162,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.25, y: 1.25}
   m_EdgeRadius: 0
---- !u!114 &1956824892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1956824886}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0be7a98239eb299429e3e9c65f7fff23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prompt: Press E to shop
-  actionIsDialog: 1
 --- !u!114 &1956824893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5212,8 +5197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 987d68f1c1ac92145a1d27721f86f480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prompt: Press E to Test
-  actionIsDialog: 1
+  prompt: Press E to shop
 --- !u!1 &1983846248
 GameObject:
   m_ObjectHideFlags: 0
