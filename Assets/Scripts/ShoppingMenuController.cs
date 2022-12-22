@@ -14,6 +14,7 @@ public class ShoppingMenuController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI shopFundsText;
     [SerializeField] private ConfirmShoppingButton confirmButton;
     [SerializeField] private CancelShoppingButton cancelButton;
+    [SerializeField] private GameObject fundsWarningTextContainer;
 
     private Inventory playerInitialInventory;
     private Inventory shopInitialInventory;
@@ -34,6 +35,8 @@ public class ShoppingMenuController : MonoBehaviour
         
         confirmButton.ConfirmButtonClicked += ConfirmButtonClicked;
         cancelButton.CancelButtonClicked += CancelButtonClicked;
+        
+        fundsWarningTextContainer.SetActive(false);
         
         RefreshInterface();
 
@@ -103,11 +106,10 @@ public class ShoppingMenuController : MonoBehaviour
             playerTempInventory.AddItem(clickedItem);
             shopTempInventory.RemoveItem(clickedItem);
             RefreshInterface();
-            Debug.Log($"Player Money {playerTempInventory.GetRemainingMoney()} , and Shop funds {shopTempInventory.GetRemainingMoney()}");
         }
         else
         {
-            Debug.Log("not enough money");
+            StartCoroutine(DisplayFundsWarning());
         }
     }
 
@@ -118,11 +120,17 @@ public class ShoppingMenuController : MonoBehaviour
             shopTempInventory.AddItem(clickedItem);
             playerTempInventory.RemoveItem(clickedItem);
             RefreshInterface();
-            Debug.Log($"Player Money {playerTempInventory.GetRemainingMoney()} , and Shop funds {shopTempInventory.GetRemainingMoney()}");
         }
         else
         {
-            Debug.Log("not enough money");
+            StartCoroutine(DisplayFundsWarning());
         }
+    }
+
+    private IEnumerator DisplayFundsWarning()
+    {
+        fundsWarningTextContainer.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        fundsWarningTextContainer.SetActive(false);
     }
 }
