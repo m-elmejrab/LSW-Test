@@ -15,5 +15,6 @@ public class UIButton : MonoBehaviour
 
     protected virtual void ClickHandler()
     {
+        SoundManager.instance.PlayAudioClip("click");
     }
 }

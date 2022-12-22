@@ -9,6 +9,7 @@ public class MainMenuButton : UIButton
 
     protected override void ClickHandler()
     {
+        base.ClickHandler();
         ButtonWasPressed?.Invoke();
     }
 

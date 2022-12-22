@@ -9,6 +9,7 @@ public class CancelShoppingButton : UIButton
     
     protected override void ClickHandler()
     {
+        base.ClickHandler();
         CancelButtonClicked?.Invoke();
     }
 }

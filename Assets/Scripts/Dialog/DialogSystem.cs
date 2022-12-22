@@ -50,6 +50,7 @@ public class DialogSystem : SingletonOneScene<DialogSystem>
          indexOfSentenceToDisplay = -1;
          GameManager.instance.EnablePlayerMovement();
          dialogBox.SetActive(false);
+         SoundManager.instance.StopSfx();
          DialogCompleted?.Invoke();
       }
       else if (indexOfSentenceToDisplay == 0)
@@ -60,11 +61,16 @@ public class DialogSystem : SingletonOneScene<DialogSystem>
          dialogBox.SetActive(true);
          dialogSpeaker.text = nextDialogToShow.dialogSentences[indexOfSentenceToDisplay].speakerName;
          dialogText.text = nextDialogToShow.dialogSentences[indexOfSentenceToDisplay].textToSay;
+         string sfxToPlay = nextDialogToShow.dialogSentences[indexOfSentenceToDisplay].soundName;
+         SoundManager.instance.PlayAudioClip(sfxToPlay);
       }
       else
       {
          dialogSpeaker.text = nextDialogToShow.dialogSentences[indexOfSentenceToDisplay].speakerName;
          dialogText.text = nextDialogToShow.dialogSentences[indexOfSentenceToDisplay].textToSay;
+         string sfxToPlay = nextDialogToShow.dialogSentences[indexOfSentenceToDisplay].soundName;
+         SoundManager.instance.PlayAudioClip(sfxToPlay);
+
       }
    }
 

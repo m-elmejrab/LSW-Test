@@ -13,5 +13,6 @@ public class Dialog : MonoBehaviour
     {
         public string speakerName;
         public string textToSay;
+        public string soundName;
     }
 }
