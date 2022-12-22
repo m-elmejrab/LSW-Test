@@ -19,7 +19,7 @@ public class EquipmentDisplay : MonoBehaviour
         equipmentButton = GetComponent<EquipmentButton>();
         
         itemName.text = item.itemName;
-        itemImage.sprite = item.picture;
+        itemImage.sprite = item.sprite;
         itemData = item;
 
         equipmentButton.enabled = true;

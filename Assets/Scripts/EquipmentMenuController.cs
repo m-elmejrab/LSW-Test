@@ -55,7 +55,6 @@ public class EquipmentMenuController : MonoBehaviour
         }
 
         PopulateEquipmentInterface();
-        Debug.Log("Refresh requested");
     }
 
     private void PopulateEquipmentInterface()

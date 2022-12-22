@@ -17,7 +17,7 @@ public class ItemDisplay : MonoBehaviour
     {
         itemName.text = item.itemName;
         itemPrice.text = item.price.ToString();
-        itemImage.sprite = item.picture;
+        itemImage.sprite = item.sprite;
 
         itemData = item;
     }

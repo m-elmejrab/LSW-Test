@@ -11,6 +11,9 @@ public class PlayerEquipment : MonoBehaviour
     private List<Item> otherEquipment;
     private Inventory playerInventory;
 
+    [SerializeField] private SpriteRenderer helmetSpriteRenderer;
+    [SerializeField] private SpriteRenderer weaponSpriteRenderer;
+
     private void Start()
     {
         playerInventory = GetComponent<Inventory>();
@@ -42,6 +45,7 @@ public class PlayerEquipment : MonoBehaviour
                     otherEquipment.Remove(item);
                 }
 
+                weaponSpriteRenderer.sprite = item.sprite;
                 break;
 
             case Item.ItemType.Helmet:
@@ -57,6 +61,7 @@ public class PlayerEquipment : MonoBehaviour
                     otherEquipment.Remove(item);
                 }
 
+                helmetSpriteRenderer.sprite = item.sprite;
                 break;
         }
     }
@@ -68,11 +73,13 @@ public class PlayerEquipment : MonoBehaviour
             case Item.ItemType.Weapon:
                 otherEquipment.Add(equippedWeapon);
                 equippedWeapon = null;
+                weaponSpriteRenderer.sprite = null;
                 break;
 
             case Item.ItemType.Helmet:
                 otherEquipment.Add(equippedHelm);
                 equippedHelm = null;
+                helmetSpriteRenderer.sprite = null;
                 break;
         }
     }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 414110115}
   - component: {fileID: 414110116}
   m_Layer: 0
-  m_Name: Hat
+  m_Name: Helmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1988394760}
   - component: {fileID: 1988394761}
   m_Layer: 0
-  m_Name: Sword
+  m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -392,3 +392,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11bda743f20f989468678c8ca76530f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  helmetSpriteRenderer: {fileID: 414110116}
+  weaponSpriteRenderer: {fileID: 1988394761}
