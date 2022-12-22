@@ -12,13 +12,18 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GameObject quitInterface;
     [SerializeField] private GameObject inventoryInterface;
 
-    private void Start()
+    [SerializeField] private EquipmentMenuController equipmentMenuController;
+
+    private bool initialPreparationSkipped = false; //Menu is disabled at start by the UI system, trying to refresh on the game's load leads to error
+    
+    private void Awake()
     {
         quitButton.ButtonWasPressed += QuitButtonOnButtonWasPressed;
         inventoryButton.ButtonWasPressed += InventoryButtonOnButtonWasPressed;
         
         quitInterface.SetActive(false);
-        inventoryInterface.SetActive(false);
+        inventoryInterface.SetActive(true);
+        
     }
 
     private void InventoryButtonOnButtonWasPressed()
@@ -28,6 +33,8 @@ public class MainMenuController : MonoBehaviour
         
         inventoryInterface.SetActive(true);
         quitInterface.SetActive(false);
+        
+        equipmentMenuController.Initialize();
     }
 
     private void QuitButtonOnButtonWasPressed()
@@ -38,5 +45,17 @@ public class MainMenuController : MonoBehaviour
         inventoryInterface.SetActive(false);
         quitInterface.SetActive(true);
         
+    }
+
+    private void OnEnable()
+    {
+        if (initialPreparationSkipped)
+        {
+            equipmentMenuController.Initialize();
+        }
+        else
+        {
+            initialPreparationSkipped = true;
+        }
     }
 }

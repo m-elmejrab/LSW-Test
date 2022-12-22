@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 5408879817589916260}
   - component: {fileID: -4538010471351115740}
   - component: {fileID: -8883949630049573815}
+  - component: {fileID: 904350416916621893}
   m_Layer: 5
   m_Name: EquipmentDisplayPrefab
   m_TagString: Untagged
@@ -179,6 +180,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a030fae38e3f8e4fb93e32545d25c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: {fileID: 5408879817764291633}
+  itemImage: {fileID: 5408879816642344246}
+--- !u!114 &904350416916621893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5408879817589916259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6109c4aedfb02944b86aca7b3c5372c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5408879817764291647

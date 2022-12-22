@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,20 @@ public class PlayerEquipment : MonoBehaviour
     private Item equippedHelm;
 
     private List<Item> otherEquipment;
+    private Inventory playerInventory;
+
+    private void Start()
+    {
+        playerInventory = GetComponent<Inventory>();
+        otherEquipment = playerInventory.GetCurrentlyHeldItems();
+        
+        playerInventory.InventoryChanged += OnPlayerInventoryChanged;
+    }
+
+    private void OnPlayerInventoryChanged()
+    {
+        otherEquipment = playerInventory.GetCurrentlyHeldItems();
+    }
 
     public void EquipItem(Item item)
     {
@@ -74,5 +89,10 @@ public class PlayerEquipment : MonoBehaviour
         }
 
         return null;
+    }
+
+    public List<Item> GetUnusedEquipment()
+    {
+        return otherEquipment;
     }
 }

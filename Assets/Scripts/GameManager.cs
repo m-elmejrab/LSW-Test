@@ -8,7 +8,7 @@ public class GameManager : Singleton<GameManager>
 
     private bool gameIsPaused = false;
     private GameObject player;
-
+    
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -42,5 +42,10 @@ public class GameManager : Singleton<GameManager>
     public void EnablePlayerMovement()
     {
         player.GetComponent<PlayerMovement>().enabled = true;
+    }
+
+    public GameObject GetReferenceToPlayer()
+    {
+        return player;
     }
 }

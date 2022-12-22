@@ -25,7 +25,7 @@ public class ShoppingMenuController : MonoBehaviour
     public void Initialize(Inventory shopInventory)
     {
         shopInitialInventory = shopInventory;
-        playerInitialInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        playerInitialInventory = GameManager.instance.GetReferenceToPlayer().GetComponent<Inventory>();
 
         playerTempInventory = new GameObject().AddComponent<Inventory>();
         playerTempInventory.SetAllInventoryData(playerInitialInventory.GetCurrentlyHeldItems(), playerInitialInventory.GetRemainingMoney());

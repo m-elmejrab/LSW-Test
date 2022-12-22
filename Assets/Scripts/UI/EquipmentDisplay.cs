@@ -10,18 +10,32 @@ public class EquipmentDisplay : MonoBehaviour
     [SerializeField] private Image itemImage;
 
     private Item itemData;
+    private EquipmentButton equipmentButton;
+    
     
     
     public void Initialize(Item item)
     {
+        equipmentButton = GetComponent<EquipmentButton>();
+        
         itemName.text = item.itemName;
         itemImage.sprite = item.picture;
-
         itemData = item;
+
+        equipmentButton.enabled = true;
     }
 
     public Item GetItemData()
     {
         return itemData;
+    }
+
+    public void ClearDisplay()
+    {
+        itemName.text = "";
+        itemImage.sprite = null;
+        itemData = null;
+        
+        equipmentButton.enabled = false;
     }
 }
