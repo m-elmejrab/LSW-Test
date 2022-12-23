@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +5,6 @@ public class PlayerEquipment : MonoBehaviour
 {
     private Item equippedWeapon;
     private Item equippedHelm;
-
     private List<Item> otherEquipment;
     private Inventory playerInventory;
 
@@ -18,7 +15,6 @@ public class PlayerEquipment : MonoBehaviour
     {
         playerInventory = GetComponent<Inventory>();
         otherEquipment = playerInventory.GetCurrentlyHeldItems();
-        
         playerInventory.InventoryChanged += OnPlayerInventoryChanged;
     }
 

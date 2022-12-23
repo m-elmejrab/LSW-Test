@@ -1,20 +1,14 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
+    private bool initialPreparationSkipped = false; //Trying to refresh UI on the game's load leads to error, skips first frame and loads after
+
     [SerializeField] private MainMenuButton quitButton;
     [SerializeField] private MainMenuButton inventoryButton;
-
     [SerializeField] private GameObject quitInterface;
     [SerializeField] private GameObject inventoryInterface;
-
     [SerializeField] private EquipmentMenuController equipmentMenuController;
-
-    private bool initialPreparationSkipped = false; //Menu is disabled at start by the UI system, trying to refresh on the game's load leads to error
     
     private void Awake()
     {
@@ -23,14 +17,12 @@ public class MainMenuController : MonoBehaviour
         
         quitInterface.SetActive(false);
         inventoryInterface.SetActive(true);
-        
     }
 
     private void InventoryButtonOnButtonWasPressed()
     {
         inventoryButton.DisableButton(); 
         quitButton.EnableButton();
-        
         inventoryInterface.SetActive(true);
         quitInterface.SetActive(false);
         
@@ -41,10 +33,8 @@ public class MainMenuController : MonoBehaviour
     {
         inventoryButton.EnableButton();
         quitButton.DisableButton();
-        
         inventoryInterface.SetActive(false);
         quitInterface.SetActive(true);
-        
     }
 
     private void OnEnable()

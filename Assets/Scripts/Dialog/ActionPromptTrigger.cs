@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ActionPromptTrigger : MonoBehaviour //Base class for all triggers

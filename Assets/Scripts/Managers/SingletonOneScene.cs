@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+//instances are accessible in scene, get destroyed on scene change
 public abstract class SingletonOneScene<T> : MonoBehaviour where T : MonoBehaviour 
 {
     public static T instance { get; private set; }
@@ -21,5 +20,4 @@ public abstract class SingletonOneScene<T> : MonoBehaviour where T : MonoBehavio
         instance = null;
         Destroy(gameObject);
     }
-    
 }

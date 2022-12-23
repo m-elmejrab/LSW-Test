@@ -1,21 +1,18 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EquipmentMenuController : MonoBehaviour
 {
+    private PlayerEquipment playerEquipment;
+    private Item equippedWeapon;
+    private Item equippedHelmet;
+    
     [SerializeField] private GridLayoutGroup weaponsContainer;
     [SerializeField] private GridLayoutGroup helmetsContainer;
     [SerializeField] private GameObject equipmentDisplayPrefab;
     [SerializeField] private EquipmentDisplay weaponSlotDisplay;
     [SerializeField] private EquipmentDisplay helmetSlotDisplay;
-
-    private PlayerEquipment playerEquipment;
-
-    private Item equippedWeapon;
-    private Item equippedHelmet;
 
     private void Start()
     {
@@ -26,8 +23,6 @@ public class EquipmentMenuController : MonoBehaviour
     public void Initialize()
     {
         playerEquipment = GameManager.instance.GetReferenceToPlayer().GetComponent<PlayerEquipment>();
-
-
         RefreshInterface();
     }
 
@@ -81,7 +76,6 @@ public class EquipmentMenuController : MonoBehaviour
                 }
             }
         }
-
 
         equippedWeapon = playerEquipment.GetEquippedItem(Item.ItemType.Weapon);
         if (equippedWeapon != null)

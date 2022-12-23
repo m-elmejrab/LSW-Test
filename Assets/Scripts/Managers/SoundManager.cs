@@ -1,15 +1,12 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : Singleton<SoundManager>
 {
-    
-    [SerializeField] private AudioSource musicSource;
-    [SerializeField] private AudioSource sfxSource; 
-
     private Dictionary<string, AudioClip> audioClips;
+
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource sfxSource;
     [SerializeField] private float musicVolume;
     [SerializeField] private float sfxVolume;
     
@@ -34,8 +31,6 @@ public class SoundManager : Singleton<SoundManager>
         AddAudioClip("equip", "Audio/equip");
         AddAudioClip("chatter", "Audio/chatter");
         AddAudioClip("dino", "Audio/dino");
-
-
     }
     
     private void AddAudioClip(string id, string address)
@@ -66,5 +61,4 @@ public class SoundManager : Singleton<SoundManager>
     {
         sfxSource.Stop();
     }
-
 }

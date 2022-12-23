@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ShoppingMenuController : MonoBehaviour
 {
+    private Inventory playerInitialInventory;
+    private Inventory shopInitialInventory;
+    
+    private Inventory playerTempInventory;
+    private Inventory shopTempInventory;
+    
     [SerializeField] private GameObject itemDisplayTemplate;
     [SerializeField] private GridLayoutGroup playerInterface;
     [SerializeField] private GridLayoutGroup shopInterface;
@@ -15,12 +20,6 @@ public class ShoppingMenuController : MonoBehaviour
     [SerializeField] private ConfirmShoppingButton confirmButton;
     [SerializeField] private CancelShoppingButton cancelButton;
     [SerializeField] private GameObject fundsWarningTextContainer;
-
-    private Inventory playerInitialInventory;
-    private Inventory shopInitialInventory;
-
-    private Inventory playerTempInventory;
-    private Inventory shopTempInventory;
     
     public void Initialize(Inventory shopInventory)
     {
@@ -29,17 +28,14 @@ public class ShoppingMenuController : MonoBehaviour
 
         playerTempInventory = new GameObject().AddComponent<Inventory>();
         playerTempInventory.SetAllInventoryData(playerInitialInventory.GetCurrentlyHeldItems(), playerInitialInventory.GetRemainingMoney());
-        
         shopTempInventory = new GameObject().AddComponent<Inventory>();
         shopTempInventory.SetAllInventoryData(shopInitialInventory.GetCurrentlyHeldItems(), shopInitialInventory.GetRemainingMoney());
         
         confirmButton.ConfirmButtonClicked += ConfirmButtonClicked;
         cancelButton.CancelButtonClicked += CancelButtonClicked;
-        
         fundsWarningTextContainer.SetActive(false);
         
         RefreshInterface();
-
     }
 
     private void CancelButtonClicked()
@@ -54,11 +50,9 @@ public class ShoppingMenuController : MonoBehaviour
     {
         playerInitialInventory.SetAllInventoryData(playerTempInventory.GetCurrentlyHeldItems(), playerTempInventory.GetRemainingMoney());
         shopInitialInventory.SetAllInventoryData(shopTempInventory.GetCurrentlyHeldItems(), shopTempInventory.GetRemainingMoney());
-        
         Destroy(shopTempInventory.gameObject);
         Destroy(playerTempInventory.gameObject);
-        
-        
+
         ShoppingSystem.instance.EndShopping();
     }
 
@@ -77,7 +71,6 @@ public class ShoppingMenuController : MonoBehaviour
         }
 
         List<Item> playerItems = playerTempInventory.GetCurrentlyHeldItems();
-
         for (int i = 0; i < playerItems.Count; i++)
         {
             GameObject newItem = Instantiate(itemDisplayTemplate, playerInterface.transform);
@@ -86,7 +79,6 @@ public class ShoppingMenuController : MonoBehaviour
         }
 
         List<Item> shopItems = shopTempInventory.GetCurrentlyHeldItems();
-
         for (int i = 0; i < shopItems.Count; i++)
         {
             GameObject newItem = Instantiate(itemDisplayTemplate, shopInterface.transform);
@@ -96,7 +88,6 @@ public class ShoppingMenuController : MonoBehaviour
 
         playerFundsText.text = playerTempInventory.GetRemainingMoney().ToString();
         shopFundsText.text = shopTempInventory.GetRemainingMoney().ToString();
-
     }
 
     private void OnBuyingItemClicked(Item clickedItem)

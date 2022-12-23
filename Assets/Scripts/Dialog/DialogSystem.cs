@@ -1,12 +1,9 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class DialogSystem : SingletonOneScene<DialogSystem>
 {
-
    private Dialog nextDialogToShow;
    private bool dialogReadyToPlay = false;
    private int indexOfSentenceToDisplay = -1;
@@ -20,7 +17,6 @@ public class DialogSystem : SingletonOneScene<DialogSystem>
 
    public event Action DialogCompleted;
 
-
    private void Start()
    {
       actionPromptBox.SetActive(false);
@@ -31,7 +27,6 @@ public class DialogSystem : SingletonOneScene<DialogSystem>
    {
       actionPromptBox.SetActive(true);
       promptText.text = prompt;
-      
    }
    
    public void HideActionPrompt()
@@ -44,7 +39,7 @@ public class DialogSystem : SingletonOneScene<DialogSystem>
    {
       indexOfSentenceToDisplay++;
 
-      if (indexOfSentenceToDisplay >= nextDialogToShow.dialogSentences.Count)
+      if (indexOfSentenceToDisplay >= nextDialogToShow.dialogSentences.Count) //Dialog has ended
       {
          dialogReadyToPlay = false;
          indexOfSentenceToDisplay = -1;
@@ -53,7 +48,7 @@ public class DialogSystem : SingletonOneScene<DialogSystem>
          SoundManager.instance.StopSfx();
          DialogCompleted?.Invoke();
       }
-      else if (indexOfSentenceToDisplay == 0)
+      else if (indexOfSentenceToDisplay == 0) //Start the dialog from the beginning
       {
          actionPromptBox.SetActive(false);
          GameManager.instance.DisablePlayerMovement();
@@ -64,7 +59,7 @@ public class DialogSystem : SingletonOneScene<DialogSystem>
          string sfxToPlay = nextDialogToShow.dialogSentences[indexOfSentenceToDisplay].soundName;
          SoundManager.instance.PlayAudioClip(sfxToPlay);
       }
-      else
+      else //Continue with the next sentence
       {
          dialogSpeaker.text = nextDialogToShow.dialogSentences[indexOfSentenceToDisplay].speakerName;
          dialogText.text = nextDialogToShow.dialogSentences[indexOfSentenceToDisplay].textToSay;
@@ -73,8 +68,7 @@ public class DialogSystem : SingletonOneScene<DialogSystem>
 
       }
    }
-
-
+   
    public bool DialogIsWaitingToPlay()
    {
       return dialogReadyToPlay;
@@ -86,5 +80,4 @@ public class DialogSystem : SingletonOneScene<DialogSystem>
       dialogReadyToPlay = true;
       indexOfSentenceToDisplay = -1;
    }
-
 }

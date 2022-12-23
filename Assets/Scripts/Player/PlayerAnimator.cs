@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+//Class is based on Unity tutorial on isometric movement adjusted for this project (https://youtu.be/tywt9tOubEY)
 public class PlayerAnimator : MonoBehaviour
 {
     private Animator anim;
-
+    private int lastDirection = 0;
+    
     public static readonly string[] staticDirections =
         { "Static N", "Static NW", "Static W", "Static SW", "Static S", "Static SE", "Static E", "Static NE" };
 
     public static readonly string[] runDirections =
         { "Run N", "Run NW", "Run W", "Run SW", "Run S", "Run SE", "Run E", "Run NE" };
-
-    private int lastDirection = 0;
-
+    
     void Awake()
     {
         anim = GetComponent<Animator>();

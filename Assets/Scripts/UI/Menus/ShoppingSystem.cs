@@ -1,12 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShoppingSystem : SingletonOneScene<ShoppingSystem>
 {
-    [SerializeField] private GameObject shoppingWindow;
     private Inventory shopInventory;
+    
+    [SerializeField] private GameObject shoppingWindow;
 
     private void Start()
     {
@@ -36,6 +34,4 @@ public class ShoppingSystem : SingletonOneScene<ShoppingSystem>
         shoppingWindow.SetActive(false);
         GameManager.instance.EnablePlayerMovement();
     }
-    
-    
 }

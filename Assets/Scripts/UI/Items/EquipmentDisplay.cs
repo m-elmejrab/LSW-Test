@@ -1,19 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EquipmentDisplay : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI itemName;
-    [SerializeField] private Image itemImage;
-
     private Item itemData;
     private EquipmentButton equipmentButton;
     
-    
-    
+    [SerializeField] private TextMeshProUGUI itemName;
+    [SerializeField] private Image itemImage;
+
     public void Initialize(Item item)
     {
         equipmentButton = GetComponent<EquipmentButton>();
